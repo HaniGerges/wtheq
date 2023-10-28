@@ -7,9 +7,10 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'wtheq-hani',
+    title: "Wtheq - وثّق",
     htmlAttrs: {
-      lang: 'en'
+      lang: "ar",
+      dir: "rtl",
     },
     meta: [
       { charset: 'utf-8' },
