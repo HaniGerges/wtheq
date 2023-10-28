@@ -92,11 +92,30 @@ export default Vue.extend({
           this.$store.commit("SET_LOADER", true);
           setTimeout(() => {
             this.$store.commit("SET_LOADER", false);
-          }, 5000);
+            this.$router.replace({
+              path: this.localePath("/redirect"),
+              query: {
+                payment: this.paymentPayload.nonce,
+                status: this.randomTransactionStatus(),
+              },
+            });
+          }, 3000);
 
           // do something with the payload/nonce
         }
       );
+    },
+    randomTransactionStatus() {
+      const list = ["Success", "Failed"];
+
+      // Generate a random index between 0 and the length of the list
+      const randomIndex = Math.floor(Math.random() * list.length);
+
+      // Pick the value at the random index from the list
+      const randomValue = list[randomIndex];
+
+      // Return the random value
+      return randomValue;
     },
   },
 });

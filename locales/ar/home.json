@@ -15,6 +15,10 @@
     "en": "EN",
     "payment": "الدفع",
     "paymentMethod": "طريقة الدفع",
-    "checkout": "الاستمرار للدفع"
+    "checkout": "الاستمرار للدفع",
+    "redirect": "المعاملة",
+    "transactionFail": "فشلت المعاملة",
+    "transactionSuccess": "تمت المعاملة بنجاح",
+    "transactionId": "رقم المعاملة"
   }
 }

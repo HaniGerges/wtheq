@@ -14,9 +14,9 @@
               :to="localePath('/')"
               class="relative flex items-center space-x-4 px-4 py-3"
             >
-              <font-awesome-icon :icon="['fa', 'user']" class="px-1" />
+              <font-awesome-icon :icon="['fa', 'user']" class="px-auto" />
 
-              <span class="px-3 group-hover:text-gray-700">{{$t(`home.myProfile`)}}</span>
+              <span class="px-4 group-hover:text-gray-700">{{$t(`home.myProfile`)}}</span>
             </NuxtLink>
           </li>
 
@@ -25,9 +25,9 @@
               :to="localePath('payment')"
               class="relative flex items-center space-x-4 px-4 py-3"
             >
-              <font-awesome-icon :icon="['fas', 'credit-card']" class="px-1" />
+              <font-awesome-icon :icon="['fas', 'credit-card']" class="px-auto" />
 
-              <span class="px-3 group-hover:text-gray-700">{{$t(`home.payment`)}}</span>
+              <span class="px-4 group-hover:text-gray-700">{{$t(`home.payment`)}}</span>
             </NuxtLink>
           </li>
         </ul>

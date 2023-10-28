@@ -15,6 +15,10 @@
     "en": "EN",
     "payment": "Payment",
     "paymentMethod": "Payment Method",
-    "checkout": "Checkout"
+    "checkout": "Checkout",
+    "redirect":"Transaction",
+    "transactionFail":"Transaction Fail",
+    "transactionSuccess":"Transaction Success",
+    "transactionId":"Transaction Number"
   }
 }
