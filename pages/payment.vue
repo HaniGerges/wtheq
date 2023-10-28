@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import dropIn from "@/components/Nav/payments/dropIn.vue";
+import dropIn from "@/components/payments/dropIn.vue";
 
 export default {
   name: "Payment",
