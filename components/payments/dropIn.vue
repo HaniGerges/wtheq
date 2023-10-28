@@ -14,39 +14,40 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from "vue";
+export default Vue.extend({
   props: {
     dropInConfigs: {
-      value: String,
+      type: Object,
     },
     loaderClass: {
-      value: String,
+      type: String,
     },
     inputClass: {
-      value: String,
+      type: String,
     },
     enablePayPal: {
-      value: Boolean,
+      type: Boolean,
     },
   },
   created() {
     this.dropinCreate();
-
-    this.$parent.$on("tokenize", () => {
+    this.$parent?.$on("tokenize", () => {
       this.dropinRequestPaymentMethod();
     });
   },
   data() {
     return {
-      errorMessage: "",
-      dropinInstance: "",
-      paymentPayload: "",
-      dataCollectorPayload: "",
+      errorMessage: "" as any,
+      dropinInstance: "" as any,
+      paymentPayload: "" as any,
+      dataCollectorPayload: "" as any,
     };
   },
   methods: {
     dropinCreate() {
+      this.$store.commit("SET_LOADER", true);
       const dropin = require("braintree-web-drop-in");
 
       // setup drop-in options
@@ -59,7 +60,7 @@ export default {
         };
       }
 
-      dropin.create(dropinOptions, (dropinError, dropinInstance) => {
+      dropin.create(dropinOptions, (dropinError: any, dropinInstance: any) => {
         if (dropinError) {
           this.errorMessage =
             "There was an error setting up the client instance. Message: " +
@@ -69,33 +70,36 @@ export default {
         }
 
         this.dropinInstance = dropinInstance;
+        this.$store.commit("SET_LOADER", false);
       });
     },
     dropinRequestPaymentMethod() {
-      this.dropinInstance.requestPaymentMethod((requestErr, payload) => {
-        if (requestErr) {
-          this.errorMessage =
-            "There was an error setting up the client instance. Message: " +
-            requestErr.message;
-          this.$emit("bt.error", this.errorMessage);
-          return;
+      this.dropinInstance.requestPaymentMethod(
+        (requestErr: any, payload: any) => {
+          if (requestErr) {
+            this.errorMessage =
+              "There was an error setting up the client instance. Message: " +
+              requestErr.message;
+            this.$emit("bt.error", this.errorMessage);
+            return;
+          }
+
+          this.paymentPayload = payload;
+          console.log(
+            "🚀 ~ file: dropIn.vue:100 ~ this.dropinInstance.requestPaymentMethod ~ this.paymentPayload:",
+            this.paymentPayload
+          );
+          this.$store.commit("SET_LOADER", true);
+          setTimeout(() => {
+            this.$store.commit("SET_LOADER", false);
+          }, 5000);
+
+          // do something with the payload/nonce
         }
-
-        this.paymentPayload = payload;
-        console.log(
-          "🚀 ~ file: dropIn.vue:100 ~ this.dropinInstance.requestPaymentMethod ~ this.paymentPayload:",
-          this.paymentPayload
-        );
-        this.$store.commit("SET_LOADER", true);
-        setTimeout(() => {
-          this.$store.commit("SET_LOADER", false);
-        }, 5000);
-
-        // do something with the payload/nonce
-      });
+      );
     },
   },
-};
+});
 </script>
 
 <style scoped>
