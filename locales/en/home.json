@@ -1,0 +1,20 @@
+{
+  "home": {
+    "gender": "Gender",
+    "Male": "Male",
+    "Female": "Female",
+    "birthdate": "Birthdate",
+    "index": "My Profile",
+    "myProfile": "My Profile",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "mobile": "Mobile",
+    "address": "Address",
+    "ar": "ع",
+    "en": "EN",
+    "payment": "Payment",
+    "paymentMethod": "Payment Method",
+    "checkout": "Checkout"
+  }
+}

@@ -1,3 +1,5 @@
+import { I18N_OPTIONS } from "./config/i18n";
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -45,7 +47,8 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    ["@nuxtjs/i18n", I18N_OPTIONS],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
