@@ -1,5 +1,5 @@
 <template>
-  <div class="m-2">
+  <div class="m-4">
     <h1>
       {{ $t(`home.${title}`) }}
     </h1>
