@@ -23,6 +23,15 @@ export default {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
 
+  
+  loadingIndicator: "~/components/Loading.vue",
+
+  loading: {
+    color: "DodgerBlue",
+    height: "10px",
+    continuous: true,
+    duration: 3000,
+  },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["@/assets/scss/main.scss"],
 

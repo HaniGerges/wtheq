@@ -1,6 +1,7 @@
 # wtheq-hani
 
 ## Build Setup
+USING NodeJS 16
 
 ```bash
 # install dependencies
